@@ -1,11 +1,11 @@
-# Automating-Excel-File-Merging-With-Python
-# Automating Excel File Merging With Python
+### Automating-Excel-File-Merging-With-Python
+
 import pandas as pd
 import os
 from tkinter import Tk, filedialog
 import time
 
-# Hide the root window
+### Hide the root window
 Tk().withdraw()
 
 # Ask user to select a folder
