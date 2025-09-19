@@ -9,15 +9,20 @@ Tk().withdraw()
 
 
 folder_path = filedialog.askdirectory(title="Select Folder Containing Excel Files")
+
 if not folder_path:
+   
     print("No folder selected!")
+    
     exit()
 
 
 files = [f for f in os.listdir(folder_path) if f.endswith(('.xlsx', '.xls'))]
 
 if not files:
+   
     print("No Excel files found in the selected folder!")
+   
     exit()
 
 
@@ -25,14 +30,20 @@ all_data = []
 
 
 for file in files:
+   
     file_path = os.path.join(folder_path, file)
+   
     df = pd.read_excel(file_path)
+   
     df["Source_File"] = file   # Optional: keep track of source file
+   
     all_data.append(df)
 
 merged_df = pd.concat(all_data, ignore_index=True)
 
+
 output_file = os.path.join(folder_path, "Merged_All_Files.xlsx")
+
 merged_df.to_excel(output_file, index=False)
 
 print(f"All {len(files)} files merged into: {output_file}")
